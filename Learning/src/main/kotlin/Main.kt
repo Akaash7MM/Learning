@@ -10,6 +10,8 @@ open class WildAnimal: Animal(){
     override fun makeSound() {
         println("Make Wild Animal Sound")
     }
+
+
 }
 
 open class DomesticAnimal: Animal(){
