@@ -40,19 +40,27 @@ open class Fish(open val length :String, override val animalType: String):Marine
      override fun flys() {
          println("This fish cant fly even for few seconds")
      }
+    fun teeth(){
+         println("Sharp Teeth")
+     }
 
  }
-   //Property initialization is not allowed in interfaces
-   //Cannot extend multiple classes but can implement multiple interfaces
-   //Interfaces can implement multiple interfaces
 
-    //Abstract classes generalize behaviour, interfaces standardize
-    // reason why multiple inheritance is not allowed is it matters what is being adopted in generalization
-    //While interfaces are just contracts than we need to adhere to. use super<T> for ambiguity
+fun SwordFish.toFish() : Fish{
+    return Fish(length,animalType="Defense")
+}
+
+fun SwordFish.teeth(){
+    println("teeth in extension")
+}
+    //Extension function allows us to add functions to existing classes and access them for every instance of that class
+    // they are similar to static functions of a class but can be defined elsewehere too
+    // if there is a conflict between function name in class body and extension function, the one in class has precedence
     fun main() {
 
         val marineAnimal:MarineAnimal = SwordFish(animalType = "Attack", length = "4m",true)
-       ( marineAnimal as SwordFish).flys()
+       ( marineAnimal as SwordFish).toFish().fishType()
+        marineAnimal.teeth()
 
 
     }

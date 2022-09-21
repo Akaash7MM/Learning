@@ -67,6 +67,7 @@ fun main(args:Array<String>) {
 
 }
 
+
 fun animalAction (domesticAnimal: DomesticAnimal){
     domesticAnimal.makeSound()
 
@@ -75,3 +76,4 @@ fun animalAction (domesticAnimal: DomesticAnimal){
     val myCat: Cat = domesticAnimal as Cat
     myCat.lickPaw()
 }
+
