@@ -1,4 +1,3 @@
-package Main
 //in kotlin any class by-default is sealed class declare as open for inheritence
 open class Animal(){
     open fun makeSound(){
