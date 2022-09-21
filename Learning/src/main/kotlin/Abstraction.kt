@@ -1,8 +1,12 @@
 
 abstract class MarineAnimal(){
+
     abstract val animalType: String
+
     abstract fun finCount()
+
     val test : String = "yes"
+
     fun tailFinSize(){
         println("Generally Long")
     }
@@ -19,7 +23,11 @@ open class Fish(open val length :String, override val animalType: String):Marine
 
 }
 
- class SwordFish( override val animalType: String , override val length: String ) : Fish( animalType, length ){
+ class SwordFish(
+     override val animalType: String ,
+     override val length: String,
+     override val canPretendDie: Boolean
+     ) : Fish( animalType, length ),FishAbilities{
 
     override fun finCount() {
         println("Swordfish has 2 fins ")
@@ -29,27 +37,22 @@ open class Fish(open val length :String, override val animalType: String):Marine
         println("it is an $animalType type fish")
     }
 
+     override fun flys() {
+         println("This fish cant fly even for few seconds")
+     }
 
-}
-    // An abstract class can have both abstract function and abstract data members that need to implemented by the child classes
-    // An abstract class can also have normal function and data members
-    // data members can be overriden in the constructor and also open data members can be declared that can be overriden in child class constructors
+ }
+   //Property initialization is not allowed in interfaces
+   //Cannot extend multiple classes but can implement multiple interfaces
+   //Interfaces can implement multiple interfaces
+
+    //Abstract classes generalize behaviour, interfaces standardize
+    // reason why multiple inheritance is not allowed is it matters what is being adopted in generalization
+    //While interfaces are just contracts than we need to adhere to. use super<T> for ambiguity
     fun main() {
 
-        val marineAnimal:MarineAnimal = SwordFish(animalType = "Attack", length = "4m")
-
-        //works overriden from MarineAnimal
-        marineAnimal.finCount()
-
-        //Doesnt work because overriden from Fish
-        /*      marineAnimal.fishType()
-                marineAnimal.length()       */
-
-        val fish:Fish = SwordFish("Attack", length = "5m")
-
-        // works part of parent class MarineAnimal
-        fish.tailFinSize()
-
+        val marineAnimal:MarineAnimal = SwordFish(animalType = "Attack", length = "4m",true)
+       ( marineAnimal as SwordFish).flys()
 
 
     }
