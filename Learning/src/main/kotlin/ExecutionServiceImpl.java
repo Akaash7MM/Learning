@@ -9,6 +9,7 @@ public class ExecutionServiceImpl {
     //We can give a fixed number of threads that can be created to handle the tasks
     //or we can give core threads(number of threads generally),
     // Max threads(Incase we need more threads),time alive(for threads other than core)
+    // Imagine a 10sec tasks queing against a 1hour task with 1 Thread allowing more threads.
 
     // .execute -> takes an runnable implementation and executes it
     //.submit -> takes a runnable(returns void) and callable(returns Object)
